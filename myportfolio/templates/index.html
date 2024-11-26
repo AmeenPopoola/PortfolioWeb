@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- ===== CSS ===== -->
-        <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/styles.css' %}">
 
         <!-- ===== BOX ICONS ===== -->
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
@@ -107,10 +107,23 @@
                     <div class="portfolio__img">
                         <img src=" {{portfolio.image.url}}" alt="">
 
-                        <div class="portfolio__link">
-                            <a href="{{ portfolio.link}}" class="portfolio__link-name">View details</a>
-                        </div>
-                    </div>
+                        <!-- Portfolio Link -->
+            <div class="portfolio__link">
+                <a href="{{ portfolio.link }}" class="portfolio__link-name">View Github</a>
+            </div>
+
+            <!-- Portfolio Description -->
+            <div class="portfolio__description">
+                <h3 class="portfolio__description-heading">Description</h3>
+                <p class="portfolio__description-text">{{ portfolio.description }}</p>
+            </div>
+
+            <!-- Portfolio Skills Used -->
+            <div class="portfolio__skills">
+                <h3 class="portfolio__skills-heading">Skills Used</h3>
+                <p class="portfolio__skills-used ">{{ portfolio.skills_used }}</p>
+            </div>
+        </div>
                    {% endfor %}
                 </div>
             </section>
@@ -166,9 +179,11 @@
                 
                 <div class="footer__data">
                     <h2 class="footer__title">LET'S CONNECT</h2>
-                    <a href="#" class="footer__social"><i class='bx bxl-facebook' ></i></a>
-                    <a href="#" class="footer__social"><i class='bx bxl-instagram' ></i></a>
-                    <a href="#" class="footer__social"><i class='bx bxl-twitter' ></i></a>
+                    {% for profile in about.profile_set.all %}
+                            <a href="{{ profile.link }}" class="about__social-icon">
+                                <i class='bx bxl-{{ profile.social_name }}' ></i>
+                            </a>
+                        {% endfor %}
                 </div>
 
 
