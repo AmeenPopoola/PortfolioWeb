@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 
 #Home
 class Home(models.Model):
@@ -47,10 +48,38 @@ class Category(models.Model):
     def __str__(self):
         return self.name
     
+    
 class Skills(models.Model):
     category = models.ForeignKey(Category,
                                  on_delete= models.CASCADE)
     skill_name = models.CharField(max_length = 20)
+    
+
+#Experience
+
+class Experience(models.Model):
+    company = models.CharField(max_length = 65)
+    position = models.CharField(max_length=200)
+    years_from = models.IntegerField()
+    years_to = models.IntegerField()
+    description = models.TextField(blank = False, default= '')
+    company_img = models.ImageField(upload_to='picture/', default='')
+    
+    def clean(self):
+        # Check if the years are within a valid range
+        if self.years_from < 1900 or self.years_from > 9999:
+            raise ValidationError('Years from must be between 1900 and 9999.')
+        if self.years_to < 1900 or self.years_to > 9999:
+            raise ValidationError('Years to must be between 1900 and 9999.')
+
+        # Check if years_to is greater than or equal to years_from
+        if self.years_from > self.years_to:
+            raise ValidationError('Years to must be greater than or equal to years from.')
+        
+    def __str__(self):
+        return self.company
+        
+        
     
 
 #Portfolio

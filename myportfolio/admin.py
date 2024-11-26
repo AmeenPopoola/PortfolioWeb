@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Home,About,Profile,Category,Skills,Portfolio
+from .models import Home,About,Profile,Category,Skills,Portfolio,Experience
 
 # Home
 admin.site.register(Home)
@@ -25,6 +25,14 @@ class CategoryAdmin(admin.ModelAdmin):
     inlines = [
         SkillsInline,
     ]
+    
+
+#Experience
+
+admin.site.register(Experience)
+class ExperienceInline(admin.TabularInline):
+    model = Experience
+    extra = 2
     
 #Portfolio
 admin.site.register(Portfolio)

@@ -97,6 +97,34 @@
                 </div>
             </section>
 
+             <!--===== Experience =====-->
+             <section class="Experience section" id="experience">
+                <h2 class="section-title">Relevant Experience</h2>
+                <div class="experience__container bd-grid">
+
+                    {% for experience in experiences %}
+                    <div class="experience__card">
+                        <div class="experience__img">
+                            <img src="{{experience.company_img.url}}" alt="">
+                        </div>
+
+                    <div class="experience__info">
+                    <h5 class="experience__subtitle">{{experience.company}}</h5>
+                    <span class="experience__profession">{{experience.years_from}} to {{experience.years_to}}</span>
+                    <span class="experience__profession">{{experience.position}}</span>
+                    <p class="experience__text">{{experience.description}}</p>
+
+                    </div>
+                </div>
+                    {% endfor %}
+
+
+
+                </div>
+                </section>
+
+
+
             <!--===== PORTFOLIO =====-->
             <section class="portfolio section" id="portfolio">
                 <h2 class="section-title">Portfolio</h2>
@@ -144,7 +172,7 @@
                         <span class="contact__text">Limerick,Ireland</span>
                     </div>
 
-                    <form action="" class="contact__form">
+                    <form action="mailto:ameennpopoola12@gmail.com" method="post" enctype="text/plain" class="contact__form">
                         <div class="contact__inputs">
                             <input type="text" placeholder="Name" class="contact__input">
                             <input type="mail" placeholder="Email" class="contact__input">
@@ -163,7 +191,7 @@
             <div class="footer__container bd-grid">
                 <div class="footer__data">
                     <h2 class="footer__title">{{home.name}}</h2>
-                    <p class="footer__text">I'm {{home.name}} and this is my personal website</p>
+                    <p class="footer__text">Thanks for Viewing!</p>
                 </div>
 
                 <div class="footer__data">

@@ -280,7 +280,64 @@ img{
 .skills__img img{
     border-radius: .5rem;
 }
+/* ===== Experience =====*/
 
+.experience__container{
+    row-gap: 2rem;
+}
+
+.experience__card {
+    display: flex;
+    align-items: center; 
+    border: 1px solid #d1d1e9; 
+    border-radius: 8px; 
+    padding: 1rem; 
+    margin-bottom: 1.5rem;
+    background-color: var(--dark-color); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.experience__img {
+    flex: 0 0 120px;
+   display: flex; 
+    margin-right: 1rem; 
+    overflow: hidden; 
+    border-radius: 8px; 
+    border: 1px solid #d1d1e9; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.experience__img img {
+    width: 100%;
+    height: 100%; 
+    object-fit: contain; 
+}
+
+.experience__info {
+    flex: 1;
+}
+
+.experience__subtitle{
+    font-size: var(--h2-font-size);
+    color: var(--first-color);
+    margin-bottom: var(--mb-1);
+    
+}
+
+
+
+.experience__profession{
+    display: block;
+    color: var(--text-color);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.experience__text{
+    margin-bottom: var(--mb-4);
+    color: var(--text-color);
+}
 /* ===== PORTFOLIO =====*/
 .portfolio{
     background-color: var(--dark-color);
